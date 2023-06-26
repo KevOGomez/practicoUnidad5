@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Informe Detallado - Resultado</title>
+</head>
+<body>
+    <h1>Informe Detallado - Resultado</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Estudiante</th>
+                <th>Clases de Aula Presentes</th>
+                <th>Clases de Educación Física Presentes</th>
+                <th>Clases de Aula Ausente Justificadas</th>
+                <th>Clases de Aula Ausente Injustificadas</th>
+                <th>Clases de Educación Física Ausente Justificadas</th>
+                <th>Clases de Educación Física Ausente Injustificadas</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for detail in details %}
+                <tr>
+                    <td>{{ detail.student.name }}</td>
+                    <td>{{ detail.class1_present }}</td>
+                    <td>{{ detail.class2_present }}</td>
+                    <td>{{ detail.class1_absent_j }}</td>
+                    <td>{{ detail.class1_absent_i }}</td>
+                    <td>{{ detail.class2_absent_j }}</td>
+                    <td>{{ detail.class2_absent_i }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Total de Inasistencias</th>
+                <th colspan="6">{{ total_absences }}</th>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

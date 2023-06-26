@@ -1,0 +1,21 @@
+<!-- informar_detalles.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Informe Detallado</title>
+</head>
+<body>
+    <h1>Informe Detallado</h1>
+    <form action="/informe_detalles" method="POST">
+        <label for="course">Seleccione el curso:</label>
+        <select id="course" name="course">
+            {% for course in courses %}
+            <option value="{{ course.id }}">{{ course.nombre }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Generar Informe">
+    </form>
+</body>
+</html>

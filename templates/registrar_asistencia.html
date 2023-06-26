@@ -1,0 +1,50 @@
+<!-- registrar_asistencia.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registrar Asistencia</title>
+</head>
+<body>
+    <h1>Registrar Asistencia</h1>
+    <form action="/registrar_asistencia" method="POST">
+        <label for="claseSelect">Seleccione el curso:</label>
+        <select id="claseSelect" name="claseSelect">
+            {% for curso in cursos %}
+            <option value="{{ curso.id }}">{{ curso.nombre }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <label for="fechaInput">Fecha:</label>
+        <input type="date" id="fechaInput" name="fechaInput">
+        <br><br>
+        <table>
+            <thead>
+                <tr>
+                    <th>Estudiante</th>
+                    <th>Asistió</th>
+                    <th>Justificación</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for estudiante in estudiantes %}
+                <tr>
+                    <td>{{ estudiante.nombre }}</td>
+                    <td>
+                        <select name="estudianteSelect">
+                            <option value="s">Sí</option>
+                            <option value="n">No</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" name="justificacion">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <br>
+        <input type="submit" value="Guardar Asistencia">
+    </form>
+</body>
+</html>
